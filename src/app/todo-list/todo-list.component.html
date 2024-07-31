@@ -1,0 +1,17 @@
+<div class="container">
+    <div *ngIf="warning" class="warning">{{ warning }}</div>
+    <table>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td [ngClass]="{ 'completed': task.completed }">
+            <input type="radio" [checked]="task.completed" (click)="toggleTask(task)" />
+            <span>{{ task.name }}</span>
+          </td>
+          <td>
+            <button (click)="deleteTask(task)">&#10006;</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

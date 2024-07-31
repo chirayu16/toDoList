@@ -1,0 +1,33 @@
+.form {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px 0;
+}
+
+input[type="text"] {
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+width: 70%;
+margin-right: 10px;
+}
+
+button[type="submit"] {
+background-color: #ff5722; 
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+button[type="submit"]:hover {
+background-color: #e64a19; 
+}
+
+.warning {
+color: red;
+margin-top: 10px;
+text-align: center;
+}

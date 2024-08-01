@@ -1,26 +1,22 @@
 .container {
   display: flex;
-  justify-content: space-between; /* Distributes space evenly between the lists */
+  justify-content: space-between; /* Distributes space between the tables */
   margin-top: 20px;
 }
 
-.todo-list {
+.todo-table {
   width: 45%; /* Adjust the width as needed */
 }
 
-h2 {
-  text-align: center;
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+td {
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
 }
 
 input[type="checkbox"] {
@@ -34,15 +30,13 @@ button {
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: auto; /* Align button to the right within the list item */
 }
 
 button:hover {
   background-color: #e64a19;
 }
 
-.warning {
-  color: red;
-  margin-top: 10px;
+h2 {
   text-align: center;
+  margin-bottom: 10px;
 }

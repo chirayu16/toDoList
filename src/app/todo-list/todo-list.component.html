@@ -1,17 +1,25 @@
 <div class="container">
-    <div *ngIf="warning" class="warning">{{ warning }}</div>
-    <table>
-      <tbody>
-        <tr *ngFor="let task of tasks">
-          <td [ngClass]="{ 'completed': task.completed }">
-            <input type="radio" [checked]="task.completed" (click)="toggleTask(task)" />
-            <span>{{ task.name }}</span>
-          </td>
-          <td>
-            <button (click)="deleteTask(task)">&#10006;</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Incomplete Tasks -->
+  <div class="todo-list">
+    <h2>To-Do Tasks</h2>
+    <ul>
+      <li *ngFor="let todo of incompleteTodos">
+        <input type="checkbox" [checked]="todo.completed" (change)="toggleTask(todo)" />
+        <span>{{ todo.name }}</span>
+        <button (click)="deleteTask(todo)">&#10006;</button>
+      </li>
+    </ul>
   </div>
-  
+
+  <!-- Completed Tasks -->
+  <div class="todo-list">
+    <h2>Completed Tasks</h2>
+    <ul>
+      <li *ngFor="let todo of completedTodos">
+        <input type="checkbox" [checked]="todo.completed" (change)="toggleTask(todo)" />
+        <span>{{ todo.name }}</span>
+        <button (click)="deleteTask(todo)">&#10006;</button>
+      </li>
+    </ul>
+  </div>
+</div>

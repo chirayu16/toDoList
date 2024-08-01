@@ -1,38 +1,48 @@
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  td {
-    padding: 10px;
-    text-align: left;
-    font-weight: bold;
-   
-  }
-  
-  .completed {
-    text-decoration: line-through;
-    color: grey;
-  }
-  
-  button {
-    background-color: #ff5722; 
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #e64a19;
-  }
-  
-  .warning {
-    color: red;
-    margin-top: 10px;
-    text-align: center;
-  }
-  
+.container {
+  display: flex;
+  justify-content: space-between; /* Distributes space evenly between the lists */
+  margin-top: 20px;
+}
+
+.todo-list {
+  width: 45%; /* Adjust the width as needed */
+}
+
+h2 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: auto; /* Align button to the right within the list item */
+}
+
+button:hover {
+  background-color: #e64a19;
+}
+
+.warning {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}

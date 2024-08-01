@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AddTaskComponent } from '../add-task/add-task.component';
 import { TodoListComponent } from '../todo-list/todo-list.component';
 
@@ -10,5 +10,12 @@ import { TodoListComponent } from '../todo-list/todo-list.component';
   styleUrl: './todo-container.component.scss'
 })
 export class TodoContainerComponent {
+  @ViewChild(TodoListComponent) todoListComponent!: TodoListComponent;
+
+  onTaskAdded(): void {
+    if (this.todoListComponent) {
+      this.todoListComponent.loadTasks(); // Refresh tasks
+    }
+  }
 
 }

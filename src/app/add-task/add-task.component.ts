@@ -1,6 +1,6 @@
 import { FormsModule } from '@angular/forms';
 import { TodoService } from './../todo.service';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
@@ -16,6 +16,7 @@ export class AddTaskComponent {
 
   taskName:string = '';
   warning: string ='';
+  @Output() taskAdded = new EventEmitter<void>();
 
   constructor(private todoService: TodoService) { }
 
@@ -29,6 +30,8 @@ export class AddTaskComponent {
       this.todoService.addTask(this.taskName);
       this.taskName = '';
       this.warning = '';
+      this.taskAdded.emit();
+
     }
   }
 }

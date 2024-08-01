@@ -1,5 +1,4 @@
 <div class="container">
-    <app-add-task></app-add-task>
-    <app-todo-list></app-todo-list>
-  </div>
-  
+  <app-add-task (taskAdded)="onTaskAdded()"></app-add-task>
+  <app-todo-list></app-todo-list>
+</div>

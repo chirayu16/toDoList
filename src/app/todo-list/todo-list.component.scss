@@ -40,3 +40,16 @@ h2 {
   text-align: center;
   margin-bottom: 10px;
 }
+
+.no-tasks {
+  padding: 10px;
+  color: #007bff;
+  cursor: pointer;
+  text-align: center;
+  font-style: italic;
+  background-color: #f8f9fa; /* Light background for better visibility */
+}
+
+.no-tasks:hover {
+  text-decoration: underline;
+}

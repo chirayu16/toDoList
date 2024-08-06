@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TodoService } from '../todo.service';
 import { Task } from '../task.model';
 import { CommonModule } from '@angular/common';
@@ -15,6 +15,8 @@ export class TodoListComponent implements OnInit {
   completedTodos: Task[] = [];
   incompleteTodos: Task[] = [];
   warning: string = '';
+
+  @Output() focusAddTask = new EventEmitter<void>();
 
   constructor(private todoService: TodoService) {}
 
@@ -41,5 +43,9 @@ export class TodoListComponent implements OnInit {
   deleteTask(task: Task): void {
     this.todoService.deleteTask(task);
     this.loadTasks(); // Refresh tasks after deletion
+  }
+
+  handleFocusAddTask(): void {
+    this.focusAddTask.emit(); // Emit event to notify parent component
   }
 }

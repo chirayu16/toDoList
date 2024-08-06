@@ -1,22 +1,28 @@
+<!-- todo-list.component.html -->
 <div class="container">
   <!-- Incomplete Tasks -->
   <div class="todo-list">
     <h2>To-Do Tasks</h2>
     <ul>
-      <div>*ngIf="incompleteTodos.length===0">No active tasks present</div>
+      <div *ngIf="incompleteTodos.length === 0">
+        No active tasks present <br />
+        <a href="#" (click)="handleFocusAddTask()">Click here to add a new task</a>
+      </div>
       <li *ngFor="let todo of incompleteTodos">
         <input type="checkbox" [checked]="todo.completed" (change)="toggleTask(todo)" />
         <span>{{ todo.name }}</span>
         <button (click)="deleteTask(todo)">&#10006;</button>
       </li>
     </ul>
-  </div>  
+  </div>
 
   <!-- Completed Tasks -->
   <div class="todo-list">
     <h2>Completed Tasks</h2>
     <ul>
-      <div>*ngIf="incompleteTodos.length===0">No active tasks present</div>
+      <div *ngIf="completedTodos.length === 0">
+        No completed tasks present
+      </div>
       <li *ngFor="let todo of completedTodos">
         <input type="checkbox" [checked]="todo.completed" (change)="toggleTask(todo)" />
         <span>{{ todo.name }}</span>

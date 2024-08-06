@@ -11,10 +11,20 @@ import { TodoListComponent } from '../todo-list/todo-list.component';
 })
 export class TodoContainerComponent {
   @ViewChild(TodoListComponent) todoListComponent!: TodoListComponent;
+  @ViewChild(AddTaskComponent) addTaskComponent!: AddTaskComponent;
+
+  ngAfterViewInit(): void {
+    this.addTaskComponent.focusInput();
+  }
 
   onTaskAdded(): void {
     if (this.todoListComponent) {
       this.todoListComponent.loadTasks(); // Refresh tasks
+    }
+  }
+  focusAddTask(): void {
+    if (this.addTaskComponent) {
+      this.addTaskComponent.focusInput(); // Focus the input field in AddTaskComponent
     }
   }
 

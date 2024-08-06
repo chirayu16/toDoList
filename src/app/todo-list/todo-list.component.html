@@ -1,20 +1,22 @@
 <div class="container">
-  <!-- Incomplete Tasks Table -->
-  <div class="todo-table">
+  <!-- Incomplete Tasks -->
+  <div class="todo-list">
     <h2>To-Do Tasks</h2>
     <ul>
+      <li *ngIf="incompleteTodos.length===0">No active tasks present</li>
       <li *ngFor="let todo of incompleteTodos">
         <input type="checkbox" [checked]="todo.completed" (change)="toggleTask(todo)" />
         <span>{{ todo.name }}</span>
         <button (click)="deleteTask(todo)">&#10006;</button>
       </li>
     </ul>
-  </div>
+  </div>  
 
-  <!-- Completed Tasks Table -->
-  <div class="todo-table">
+  <!-- Completed Tasks -->
+  <div class="todo-list">
     <h2>Completed Tasks</h2>
     <ul>
+      <li *ngIf="completedTodos.length===0">No completed tasks present</li>
       <li *ngFor="let todo of completedTodos">
         <input type="checkbox" [checked]="todo.completed" (change)="toggleTask(todo)" />
         <span>{{ todo.name }}</span>

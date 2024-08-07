@@ -1,29 +1,59 @@
 .container {
   display: flex;
-  justify-content: space-between; /* Distributes space between the tables */
+  justify-content: space-between;
   margin-top: 20px;
 }
 
-.todo-table {
-  width: 45%; /* Adjust the width as needed */
+.todo-list {
+  width: 45%;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.todo-incomplete {
+  background-color: #e3f2fd; /* Light blue background for incomplete tasks */
 }
 
-td {
+.todo-completed {
+  background-color: #c8e6c9; /* Light green background for completed tasks */
+}
+
+.todo-list h2 {
+  background-color: #f8f9fa;
   padding: 10px;
-  text-align: left;
-  font-weight: bold;
+  border-radius: 4px;
+  text-align: center;
 }
 
-input[type="checkbox"] {
+.todo-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.todo-list li:last-child {
+  border-bottom: none;
+}
+
+.task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-header input[type="checkbox"] {
   margin-right: 10px;
+  vertical-align: middle;
 }
 
-button {
+.task-header button {
   background-color: #ff5722;
   color: white;
   border: none;
@@ -32,13 +62,62 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.task-header button:hover {
   background-color: #e64a19;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 10px;
+.subtask-form {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  padding-left: 20px; /* Indent subtasks form */
+}
+
+.subtask-form input[type="text"] {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.subtask-form button {
+  padding: 5px 10px;
+}
+
+.subtask-list {
+  padding-left: 20px; /* Indent subtasks */
+  list-style: none;
+  margin-top: 10px;
+}
+
+.subtask-item {
+  padding-left: 20px; /* Additional indentation for each subtask */
+}
+
+.subtask-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.subtask-list input[type="checkbox"] {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.subtask-list button {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.subtask-list button:hover {
+  background-color: #e64a19;
 }
 
 .no-tasks {
@@ -47,9 +126,17 @@ h2 {
   cursor: pointer;
   text-align: center;
   font-style: italic;
-  background-color: #f8f9fa; /* Light background for better visibility */
+  background-color: #f8f9fa;
 }
 
 .no-tasks:hover {
   text-decoration: underline;
+}
+
+.todo-list .subtask-list {
+  margin-left: 20px;
+}
+
+.todo-list .subtask-item {
+  margin-left: 20px;
 }

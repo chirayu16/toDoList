@@ -1,12 +1,13 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TodoService } from '../todo.service';
-import { Task } from '../task.model';
+import { Task, Subtask } from './../model/task.model';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })
@@ -15,6 +16,7 @@ export class TodoListComponent implements OnInit {
   completedTodos: Task[] = [];
   incompleteTodos: Task[] = [];
   warning: string = '';
+  newSubtaskName: string = '';
 
   @Output() focusAddTask = new EventEmitter<void>();
 
@@ -37,15 +39,34 @@ export class TodoListComponent implements OnInit {
   toggleTask(task: Task): void {
     task.completed = !task.completed;
     this.todoService.updateTask(task);
-    this.loadTasks(); // Refresh tasks after update
+    this.loadTasks();
   }
 
   deleteTask(task: Task): void {
     this.todoService.deleteTask(task);
-    this.loadTasks(); // Refresh tasks after deletion
+    this.loadTasks();
   }
 
   handleFocusAddTask(): void {
-    this.focusAddTask.emit(); // Emit event to notify parent component
+    this.focusAddTask.emit();
+  }
+
+  addSubtask(task: Task): void {
+    if (this.newSubtaskName.trim()) {
+      this.todoService.addSubtask(task.name, this.newSubtaskName.trim());
+      this.newSubtaskName = '';
+      this.loadTasks();
+    }
+  }
+
+  toggleSubtask(task: Task, subtask: Subtask): void {
+    subtask.completed = !subtask.completed;
+    this.todoService.updateSubtask(task.name, subtask);
+    this.loadTasks();
+  }
+
+  deleteSubtask(task: Task, subtaskName: string): void {
+    this.todoService.deleteSubtask(task.name, subtaskName);
+    this.loadTasks();
   }
 }

@@ -1,8 +1,8 @@
 <div class="container">
     <h1 class="heading">To-Do List <span role="img" aria-label="emoji">📋</span></h1>
     <form class="form" (ngSubmit)="addTask()">
-    <input type="text" #taskInput [(ngModel)]="taskName" name="taskName" placeholder="Add your task" required />
-    <button type="submit">Add</button>
+        <input type="text" #taskInput [(ngModel)]="taskName" name="taskName" placeholder="Add your task" required />
+        <button type="submit">Add</button>
     </form>
     <div *ngIf="warning" class="warning">{{ warning }}</div>
 </div>

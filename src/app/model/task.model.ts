@@ -7,5 +7,7 @@ export interface Task {
   name: string;
   completed: boolean;
   subtasks: Subtask[];
-  newSubtaskName?: string; // Change: Optional property for input binding
+  newSubtaskName?: string;
+  subtaskWarning?: string; // Change: Optional property for input binding
+   // Change: Optional property for input binding
 }

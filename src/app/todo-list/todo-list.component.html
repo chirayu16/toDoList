@@ -15,10 +15,10 @@
         </div>
         <!-- Add Subtask -->
         <div class="subtask-form">
-          <!-- Change: Use todo.newSubtaskName for each task's input -->
-          <input type="text" [(ngModel)]="todo.newSubtaskName" placeholder="New subtask" />
-          <button (click)="addSubtask(todo)">Add Subtask</button>
+          <input type="text" [(ngModel)]="todo.newSubtaskName" placeholder="New subtask" (keydown.enter)="addSubtask(todo)" />
+          <button (click)="addSubtask(todo)">Add</button>
         </div>
+        <p class="warning-message">{{ todo.subtaskWarning }}</p>
         <!-- Subtasks -->
         <ul class="subtask-list">
           <li *ngFor="let subtask of todo.subtasks" class="subtask-item">
@@ -46,10 +46,10 @@
         </div>
         <!-- Add Subtask -->
         <div class="subtask-form">
-          <!-- Change: Use todo.newSubtaskName for each task's input -->
-          <input type="text" [(ngModel)]="todo.newSubtaskName" placeholder="New subtask" />
-          <button (click)="addSubtask(todo)">Add Subtask</button>
+          <input type="text" [(ngModel)]="todo.newSubtaskName" placeholder="New subtask" (keydown.enter)="addSubtask(todo)" />
+          <button (click)="addSubtask(todo)">Add</button>
         </div>
+        <p class="warning-message">{{ todo.subtaskWarning }}</p>
         <!-- Subtasks -->
         <ul class="subtask-list">
           <li *ngFor="let subtask of todo.subtasks" class="subtask-item">

@@ -1,7 +1,6 @@
 .container {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
 }
 
 .todo-list {
@@ -15,10 +14,13 @@
 
 .todo-incomplete {
   background-color: #e3f2fd; /* Light blue background for incomplete tasks */
+  margin-right: 12px;
+  
 }
 
 .todo-completed {
   background-color: #c8e6c9; /* Light green background for completed tasks */
+  margin-left: 12px;
 }
 
 .todo-list h2 {
@@ -46,6 +48,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
+  border-radius: 2px
 }
 
 .task-header input[type="checkbox"] {
@@ -57,7 +61,7 @@
   background-color: #ff5722;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 2px 8px ;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -67,10 +71,16 @@
 }
 
 .subtask-form {
-  display: flex;
-  align-items: center;
+  display: flex; 
+  align-items: center; 
+  margin: 24px 12px 24px 7px; 
+  padding-left: 24px;
+}
+
+.warning-message {
   margin-top: 5px;
-  padding-left: 20px; /* Indent subtasks form */
+  margin-left: 50px; /* Align with the subtask form */
+  color: #ff5722; /* Red color for the warning message */
 }
 
 .subtask-form input[type="text"] {
@@ -82,7 +92,13 @@
 }
 
 .subtask-form button {
-  padding: 5px 10px;
+  padding: 2px;
+  background-color: #ff5722;
+  color: white; 
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+
 }
 
 .subtask-list {
@@ -111,7 +127,7 @@
   background-color: #ff5722;
   color: white;
   border: none;
-  padding: 3px 6px;
+  padding: 2px 8px;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -139,4 +155,9 @@
 
 .todo-list .subtask-item {
   margin-left: 20px;
+  background-color: white;
+  margin: 24px 12px 12px 12px; 
+  padding: 0px; 
+  border-radius: 3px;  
 }
+

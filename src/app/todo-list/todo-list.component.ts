@@ -15,7 +15,6 @@ export class TodoListComponent implements OnInit {
   tasks: Task[] = [];
   completedTodos: Task[] = [];
   incompleteTodos: Task[] = [];
-  warning: string = '';
 
   @Output() focusAddTask = new EventEmitter<void>();
 
@@ -51,12 +50,23 @@ export class TodoListComponent implements OnInit {
   }
 
   addSubtask(task: Task): void {
-    // Change: Check if newSubtaskName is defined and not empty
     const subtaskName = task.newSubtaskName?.trim();
     if (subtaskName) {
+      // Check if the subtask already exists
+      const existingSubtask = task.subtasks.find(
+        (subtask) => subtask.name.toLowerCase() === subtaskName.toLowerCase()
+      );
+      if (existingSubtask) {
+        task.subtaskWarning = 'Subtask already exists.';
+        return;
+      }
+
       this.todoService.addSubtask(task.name, subtaskName);
       task.newSubtaskName = ''; // Clear the input field after adding a subtask
+      task.subtaskWarning = ''; // Clear any previous warning
       this.loadTasks();
+    } else {
+      task.subtaskWarning = 'You cannot add an empty subtask.';
     }
   }
 

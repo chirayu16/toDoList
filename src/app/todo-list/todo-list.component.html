@@ -1,7 +1,7 @@
 <div class="container">
   <!-- Incomplete Tasks -->
   <div class="todo-list todo-incomplete">
-    <h2>To-Do Tasks</h2>
+    <h2>Pending tasks</h2>
     <ul>
       <div *ngIf="incompleteTodos.length === 0" class="no-tasks">
         No active tasks present <br />
@@ -16,12 +16,12 @@
         <!-- Add Subtask -->
         <div class="subtask-form">
           <input type="text" [(ngModel)]="todo.newSubtaskName" placeholder="New subtask" (keydown.enter)="addSubtask(todo)" />
-          <button (click)="addSubtask(todo)">Add</button>
+          <button (click)="addSubtask(todo)">+</button>
         </div>
         <p class="warning-message">{{ todo.subtaskWarning }}</p>
         <!-- Subtasks -->
         <ul class="subtask-list">
-          <li *ngFor="let subtask of todo.subtasks" class="subtask-item">
+          <li *ngFor="let subtask of todo.subtasks" class="subtask-item open-task">
             <input type="checkbox" [checked]="subtask.completed" (change)="toggleSubtask(todo, subtask)" />
             <span>{{ subtask.name }}</span>
             <button (click)="deleteSubtask(todo, subtask.name)">&#10006;</button>
@@ -33,7 +33,7 @@
 
   <!-- Completed Tasks -->
   <div class="todo-list todo-completed">
-    <h2>Completed Tasks</h2>
+    <h2>Completed tasks</h2>
     <ul>
       <div *ngIf="completedTodos.length === 0" class="no-tasks">
         No completed tasks present
@@ -47,12 +47,12 @@
         <!-- Add Subtask -->
         <div class="subtask-form">
           <input type="text" [(ngModel)]="todo.newSubtaskName" placeholder="New subtask" (keydown.enter)="addSubtask(todo)" />
-          <button (click)="addSubtask(todo)">Add</button>
+          <button (click)="addSubtask(todo)">+</button>
         </div>
         <p class="warning-message">{{ todo.subtaskWarning }}</p>
         <!-- Subtasks -->
         <ul class="subtask-list">
-          <li *ngFor="let subtask of todo.subtasks" class="subtask-item">
+          <li *ngFor="let subtask of todo.subtasks" class="subtask-item completed-task">
             <input type="checkbox" [checked]="subtask.completed" (change)="toggleSubtask(todo, subtask)" />
             <span>{{ subtask.name }}</span>
             <button (click)="deleteSubtask(todo, subtask.name)">&#10006;</button>
